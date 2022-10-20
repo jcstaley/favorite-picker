@@ -426,7 +426,8 @@ var items = [
 ];
 
 var myPicker = new picker.Picker({
-    items: items
+    items: items,
+    localStorageKey: 'picker-state'
 });
 
 var pickerUI = new PickerUI(myPicker, {
