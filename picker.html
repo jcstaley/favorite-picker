@@ -231,6 +231,7 @@ button.disabled:hover {
 <script src="picker-ui.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.7.0/Sortable.min.js"></script>
 <script>
+<input type="number" id="max-batch-size">
 'use strict';
 
 var items = [
@@ -279,7 +280,10 @@ var pickerUI = new PickerUI(myPicker, {
         undo: "#undo",
         redo: "#redo",
         evaluating: "#evaluating",
-        favorites: "#favorites"
+        favorites: "#favorites",
+        settings: {
+            maxBatchSize: '#max-batch-size'
+        }
     }
 });
 
