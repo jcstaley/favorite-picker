@@ -271,8 +271,9 @@ var myPicker = new picker.Picker({
     items: items,
     localStorageKey: 'picker-state',
     defaultSettings: {
-        minBatchSize: 3,
-        maxBatchSize: 6
+        minBatchSize: 2,
+        maxBatchSize: 3
+    }
 });
 
 var pickerUI = new PickerUI(myPicker, {
