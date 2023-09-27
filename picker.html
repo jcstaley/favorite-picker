@@ -302,16 +302,7 @@ var myPicker = new picker.Picker({
         for (var i = 0; i < items.length; i++) {
             // Skip item if:
             // 1. the character's role is not in the list of roles we've checked, or
-            // 2. we checked the "recurring only" box, and the character is not a recurring character.
-            if (settings.roles.indexOf(items[i].role) === -1 || settings.recurringOnly && !items[i].recurring) continue;
-
-            // If we want no duplicates, make sure we're not already including a different incarnation of the same character.
-            if (settings.noDuplicates) {
-                // Skip if we're already including a character with this base.
-                if (items[i].base && used[items[i].base]) continue;
-
-                // Record that we're including this character, so we don't introduce duplicates later.
-                used[items[i].base || items[i].id] = true;
+            if (settings.roles.indexOf(items[i].role) continue;
             }
             filteredList.push(items[i].id);
         }
