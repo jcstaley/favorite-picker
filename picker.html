@@ -225,15 +225,17 @@ button.disabled:hover {
 <input type="number" id="max-batch-size">
 
 <p>Include MSM islands:
-<label><input type="checkbox" name="islands" class="islands" value="WublinIsland"> Wublin Island</label>
-<label><input type="checkbox" name="islands" class="islands" value="CelestialIsland"> Celestial Island</label>
+<label><input type="checkbox" name="islands" class="islands" value="seasonalShanty"> Seasonal Shanty</label>
+<label><input type="checkbox" name="islands" class="islands" value="wublinIsland"> Wublin Island</label>
+<label><input type="checkbox" name="islands" class="islands" value="celestialIsland"> Celestial Island</label>
 </p>
 
 <p>Include DOF islands:
-<label><input type="checkbox" name="islands" class="islands" value="Starhenge"> Starhenge</label>
+<label><input type="checkbox" name="islands" class="islands" value="starhenge"> Starhenge</label>
 </p>
     
 <p>Include classes:
+<label><input type="checkbox" name="classes" class="classes" value="common"> Commons</label>
 <label><input type="checkbox" name="classes" class="classes" value="rare"> Rares</label>
 <label><input type="checkbox" name="classes" class="classes" value="epic"> Epics</label>
 <label><input type="checkbox" name="classes" class="classes" value="prismatic"> Prismatics</label>
@@ -253,44 +255,46 @@ button.disabled:hover {
 'use strict';
 
 var items = [
-    {id: "Astropod", image: "Astropod.png"},
-    {id: "Blipsqueak", image: "Blipsqueak.png"},
-    {id: "BonaPetite", image: "Bona-Petite.png"},
-    {id: "Brump", image: "Brump.png"},
-    {id: "Creepuscule", image: "Creepuscule.png"},
-    {id: "Dermit", image: "Dermit.png"},
-    {id: "Dwumrohl", image: "Dwumrohl.png"},
-    {id: "Fleechwurm", image: "Fleechwurm.png"},
-    {id: "Gheegur", image: "Gheegur.png"},
-    {id: "Maulch", image: "Maulch.png"},
-    {id: "Pixolotl", image: "Pixolotl.png"},
-    {id: "Poewk", image: "Poewk.png"},
-    {id: "RareAstropod", image: "Rare Astropod.png"},
-    {id: "RareBlipsqueak", image: "Rare Blipsqueak.png"},
-    {id: "RareBrump", image: "Rare Brump.png"},
-    {id: "RareCreepuscule", image: "Rare Creepuscule.png"},
-    {id: "RareDwumrohl", image: "Rare Dwumrohl.png"},
-    {id: "RarePoewk", image: "Rare Poewk.png"},
-    {id: "RareThwok", image: "Rare Thwok.png"},
-    {id: "RareTympa", image: "Rare Tympa.png"},
-    {id: "RareWhajje", image: "Rare Whajje.png"},
-    {id: "RareZynth", image: "Rare Zynth.png"},
-    {id: "Scargo", image: "Scargo.png"},
-    {id: "Screemu", image: "Screemu.png"},
-    {id: "Thwok", image: "Thwok.png"},
-    {id: "Tympa", image: "Tympa.png"},
-    {id: "Whajje", image: "Whajje.png"},
-    {id: "Zuuker", image: "Zuuker.png"},
-    {id: "Zynth", image: "Zynth.png"},
-    {id: "Monculus", image: "Monculus.png"},
-    {id: "Wubbox", image: "Wubbox.png"}// Define your items here
+    {id: "Astropod", image: "Astropod.png", class: "common", island: "wublinIsland"},
+    {id: "Blipsqueak", image: "Blipsqueak.png", class: "common", island: "wublinIsland"},
+    {id: "BonaPetite", image: "Bona-Petite.png", class: "common", island: "wublinIsland"},
+    {id: "Brump", image: "Brump.png", class: "common", island: "wublinIsland"},
+    {id: "Creepuscule", image: "Creepuscule.png", class: "common", island: "wublinIsland"},
+    {id: "Dermit", image: "Dermit.png", class: "common", island: "wublinIsland"},
+    {id: "Dwumrohl", image: "Dwumrohl.png", class: "common", island: "wublinIsland"},
+    {id: "Fleechwurm", image: "Fleechwurm.png", class: "common", island: "wublinIsland"},
+    {id: "Gheegur", image: "Gheegur.png", class: "common", island: "wublinIsland"},
+    {id: "Maulch", image: "Maulch.png", class: "common", island: "wublinIsland"},
+    {id: "Pixolotl", image: "Pixolotl.png", class: "common", island: "wublinIsland"},
+    {id: "Poewk", image: "Poewk.png", class: "common", island: "wublinIsland"},
+    {id: "RareAstropod", image: "Rare Astropod.png", class: "rare", island: "wublinIsland"},
+    {id: "RareBlipsqueak", image: "Rare Blipsqueak.png", class: "rare", island: "wublinIsland"},
+    {id: "RareBrump", image: "Rare Brump.png", class: "rare", island: "wublinIsland"},
+    {id: "RareCreepuscule", image: "Rare Creepuscule.png", class: "rare", island: "wublinIsland"},
+    {id: "RareDwumrohl", image: "Rare Dwumrohl.png", class: "rare", island: "wublinIsland"},
+    {id: "RarePoewk", image: "Rare Poewk.png", class: "rare", island: "wublinIsland"},
+    {id: "RareThwok", image: "Rare Thwok.png", class: "rare", island: "wublinIsland"},
+    {id: "RareTympa", image: "Rare Tympa.png", class: "rare", island: "wublinIsland"},
+    {id: "RareWhajje", image: "Rare Whajje.png", class: "rare", island: "wublinIsland"},
+    {id: "RareZynth", image: "Rare Zynth.png", class: "rare", island: "wublinIsland"},
+    {id: "Scargo", image: "Scargo.png", class: "common", island: "wublinIsland"},
+    {id: "Screemu", image: "Screemu.png", class: "common", island: "wublinIsland"},
+    {id: "Thwok", image: "Thwok.png", class: "common", island: "wublinIsland"},
+    {id: "Tympa", image: "Tympa.png", class: "common", island: "wublinIsland"},
+    {id: "Whajje", image: "Whajje.png", class: "common", island: "wublinIsland"},
+    {id: "Zuuker", image: "Zuuker.png", class: "common", island: "wublinIsland"},
+    {id: "Zynth", image: "Zynth.png", class: "common", island: "wublinIsland"},
+    {id: "Monculus", image: "Monculus.png", class: "common", island: ['seasonalShanty', 'wublinIsland']},
+    {id: "Wubbox", image: "Wubbox.png", class: "common", island: "wublinIsland"}// Define your items here
 ];
 
 var myPicker = new picker.Picker({
     items: items,
     defaultSettings: {
         minBatchSize: 2,
-        maxBatchSize: 5
+        maxBatchSize: 5,
+        classes: ['common', 'rare', 'epic', 'prismatic'],
+        islands: ['seasonalShanty', 'wublinIsland', 'celestialIsland', 'stonehenge']
     }
 });
 
